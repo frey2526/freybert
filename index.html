@@ -3,43 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Freybert — automatizaciones con IA</title>
-  <meta name="description" content="Freybert: automatizaciones con IA, paneles y herramientas que se ven y se usan.">
+  <title>Freybert</title>
+  <meta name="description" content="Freybert.">
   <meta name="theme-color" content="#1a1b26">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Freybert">
-  <meta property="og:description" content="Automatizaciones con IA, paneles y herramientas que se ven y se usan.">
+  <meta property="og:description" content="Freybert.">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1b26'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='700' fill='%239ece6a' text-anchor='middle'%3Ef%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1b26'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='700' fill='%23bb9af7' text-anchor='middle'%3Ef%3C/text%3E%3C/svg%3E">
 
   <link rel="preload" href="assets/fonts/geist-latin-wght-normal.BgDaEnEv.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jetbrains-mono-latin-wght-normal.B9CIFXIH.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
 
-  <!-- Aplica el tema guardado antes de pintar, para que no parpadee. -->
+  <!-- Tema antes de pintar (sin parpadeo) y modo sin animaciones para pruebas. -->
   <script>
     (function () {
       var themes = ["tokyo-night", "catppuccin", "gruvbox", "everforest", "rose-pine"];
-      var fromUrl = new URLSearchParams(location.search).get("theme");
+      var params = new URLSearchParams(location.search);
+      var fromUrl = params.get("theme");
       var saved = localStorage.getItem("freybert-theme");
       var theme = [fromUrl, saved].filter(function (id) {
         return themes.indexOf(id) > -1;
       })[0];
       if (theme) document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.add("js");
+      if (params.get("motion") === "off") document.documentElement.classList.add("no-motion");
     })();
-  </script>
-
-  <!-- Datos para buscadores e IAs. Cambia url y sameAs cuando tengas dominio y perfiles. -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Freybert",
-    "alternateName": "Frey",
-    "description": "Automatizaciones con IA, paneles y herramientas que se ven y se usan.",
-    "sameAs": ["https://github.com/frey2526"]
-  }
   </script>
 </head>
 <body>
@@ -57,11 +48,8 @@
   <main id="top">
     <section class="hero">
       <p class="kicker">// perfil</p>
-      <h1>freybert<span class="accent">.</span></h1>
-      <p class="tagline">
-        Automatizaciones con IA, paneles y herramientas
-        que se ven y se usan. <span class="dim">Aprendiendo en público.</span>
-      </p>
+      <h1><span class="etch">freybert<span class="accent">.</span></span></h1>
+      <p class="status"><span class="pulse" aria-hidden="true"></span>en construcción</p>
 
       <div class="actions">
         <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
@@ -73,82 +61,48 @@
           <span></span><span></span><span></span>
           <em>~/freybert</em>
         </div>
-        <pre><code><span class="prompt">$</span> whoami
-freybert
-
-<span class="prompt">$</span> cat about.txt
-Automatizaciones con IA, paneles y herramientas
-que se ven y se usan. Aprendiendo en público.
-
-<span class="prompt">$</span> ls proyectos/
-panel-automatizaciones   panel-estadisticas   proyectos-organizados
-
-<span class="prompt">$</span> <span class="cursor" aria-hidden="true">▊</span></code></pre>
+        <pre><code id="terminal-code"></code></pre>
       </div>
     </section>
 
-    <section id="sobre" class="section">
+    <section id="sobre" class="section reveal">
       <h2><a href="#sobre"><span class="hash" aria-hidden="true">#</span> Sobre mí</a></h2>
-      <p class="lead">
-        Soy Freybert. Construyo automatizaciones que resuelven cosas concretas:
-        lanzar tareas, vigilar que salgan bien y enseñar el resultado en una pantalla.
-      </p>
-      <p>
-        Vengo de Python y Git, y estoy aprendiendo lo que rodea al producto:
-        HTML y CSS, JavaScript, APIs con FastAPI, SQL y despliegue. Me interesa
-        lo que se puede tocar: paneles, formularios, páginas.
-      </p>
-
-      <ul class="chips" aria-label="Herramientas">
-        <li>Python</li>
-        <li>FastAPI</li>
-        <li>SQL</li>
-        <li>HTML / CSS</li>
-        <li>JavaScript</li>
-        <li>Linux</li>
-        <li>Git</li>
-        <li>IA</li>
-      </ul>
+      <div class="placeholder">
+        <span class="ph-tag">bio</span>
+        <p>Aquí irá la presentación: quién eres y qué haces, en dos o tres frases.</p>
+      </div>
     </section>
 
-    <section id="proyectos" class="section">
+    <section id="proyectos" class="section reveal">
       <h2><a href="#proyectos"><span class="hash" aria-hidden="true">#</span> Proyectos</a></h2>
       <div class="grid">
-        <article class="card">
-          <p class="card-tag">FastAPI · Python</p>
-          <h3>Panel de automatizaciones</h3>
-          <p>Un panel para lanzar y vigilar automatizaciones desde el navegador, sin tocar la terminal.</p>
-          <a class="card-link" href="#">Ver más <span aria-hidden="true">→</span></a>
+        <article class="card is-empty">
+          <p class="card-tag">proyecto 01</p>
+          <p class="ph-line">Sin contenido todavía.</p>
         </article>
-
-        <article class="card">
-          <p class="card-tag">Python · SQL</p>
-          <h3>Panel de estadísticas</h3>
-          <p>Métricas de un vistazo: qué se ejecutó, cuándo y cómo salió.</p>
-          <a class="card-link" href="#">Ver más <span aria-hidden="true">→</span></a>
+        <article class="card is-empty">
+          <p class="card-tag">proyecto 02</p>
+          <p class="ph-line">Sin contenido todavía.</p>
         </article>
-
-        <article class="card">
-          <p class="card-tag">HTML · CSS</p>
-          <h3>Proyectos organizados</h3>
-          <p>Una biblioteca de piezas terminadas: página arriba, código al lado y un LEEME que explica.</p>
-          <a class="card-link" href="#">Ver más <span aria-hidden="true">→</span></a>
+        <article class="card is-empty">
+          <p class="card-tag">proyecto 03</p>
+          <p class="ph-line">Sin contenido todavía.</p>
         </article>
       </div>
     </section>
 
-    <section id="contacto" class="section">
+    <section id="contacto" class="section reveal">
       <h2><a href="#contacto"><span class="hash" aria-hidden="true">#</span> Contacto</a></h2>
-      <p class="lead">Si quieres automatizar algo, o solo preguntar cómo va, escríbeme.</p>
-      <ul class="links">
-        <li><a href="https://github.com/frey2526" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
-        <li><a href="#">Correo <span aria-hidden="true">↗</span></a></li>
-      </ul>
+      <div class="placeholder">
+        <span class="ph-tag">enlaces</span>
+        <p>Aquí irán tus enlaces: GitHub, correo, lo que uses.</p>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>© <span id="year">2026</span> Freybert</p>
+    <p class="hint">pulsa <kbd>T</kbd> o el botón para cambiar de tema</p>
     <button class="theme-btn" id="theme-btn" type="button" aria-live="polite">
       Tema: <span id="theme-name">Tokyo Night</span>
     </button>
