@@ -159,23 +159,23 @@ body::before {
   to { transform: translate3d(6vw, -8vh, 0) scale(1.1); }
 }
 
-/* Halo que persigue el cursor. */
+/* Halo que persigue el cursor. Más pequeño que antes. */
 .aura {
   position: absolute;
   left: 0;
   top: 0;
-  width: 46rem;
-  height: 46rem;
-  margin: -23rem 0 0 -23rem;
+  width: 21rem;
+  height: 21rem;
+  margin: -10.5rem 0 0 -10.5rem;
   border-radius: 50%;
   background: radial-gradient(circle, var(--brand-soft) 0%, transparent 62%);
-  filter: blur(24px);
+  filter: blur(16px);
   opacity: 0;
   transform: translate3d(var(--mx, 50vw), var(--my, 30vh), 0);
   transition: opacity .5s ease;
 }
 
-body.has-pointer .aura { opacity: .85; }
+body.has-pointer .aura { opacity: .65; }
 
 .grain {
   position: absolute;
@@ -326,30 +326,130 @@ h1 .etch {
 
 h1 .accent { color: var(--brand); }
 
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  margin: 1.5rem 0 0;
+/* --- Roles bajo el nombre (hero) --- */
+
+.roles {
+  margin: 1rem 0 0;
   font-family: var(--font-mono);
-  font-size: .76rem;
-  letter-spacing: .1em;
+  font-size: 1.05rem;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--brand);
+  font-weight: 500;
 }
 
-.pulse {
-  width: .5rem;
-  height: .5rem;
+/* --- Sección Ajedrez: texto + tablero lado a lado --- */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr minmax(150px, 220px);
+  gap: clamp(1.5rem, 6vw, 3rem);
+  align-items: center;
+}
+
+.board {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--brand) 6%, transparent);
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+}
+
+.board span {
+  font-size: clamp(3rem, 22vw, 6rem);
+  color: var(--brand);
+  opacity: .75;
+}
+
+/* --- Cómo trabajo: lista numerada --- */
+
+.principles {
+  margin: 0;
+  padding-left: 1.4rem;
+  list-style: none;
+  color: var(--text-2);
+}
+
+.principles li {
+  padding: .9rem 0 .9rem 2.2rem;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.principles li::before {
+  content: counter(step);
+  counter-increment: step;
+  position: absolute;
+  left: 0;
+  top: .85rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background: var(--brand);
-  animation: pulse 2.4s ease-out infinite;
+  color: var(--brand-ink);
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 700;
+  display: grid;
+  place-content: center;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 var(--brand-soft); }
-  70% { box-shadow: 0 0 0 9px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
+/* --- Ahora: lista con etiquetas --- */
+
+.now {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: .85rem;
+}
+
+.now li {
+  padding: .9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: .95rem;
+  color: var(--text-2);
+}
+
+.now-tag {
+  display: inline-block;
+  margin-right: .7rem;
+  padding: .12rem .5rem;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Tarjetas y chips del resto de secciones (ya existen, los pego por claridad) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: .35rem .8rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--text-2);
+  background: var(--surface);
 }
 
 .actions {

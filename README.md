@@ -3,8 +3,8 @@
 Página personal de Freybert. Estática y sin dependencias: HTML, CSS y un poco de JS.
 Estética de Omarchy: oscuro, monoespaciada, acento morado y temas intercambiables.
 
-Ahora mismo **no tiene información**: solo la estructura, los huecos y toda la capa técnica
-para que los buscadores puedan indexarla.
+Contenido real: **ajedrecista, programador y desarrollador de sistemas** — automatizaciones con IA,
+paneles y herramientas que se ven y se usan, más una guía de indexación.
 
 ## Verla
 
@@ -18,14 +18,16 @@ Abre <http://127.0.0.1:8765>. Para pararla, `Ctrl+C`.
 ## Qué hay dentro
 
 ```
-index.html            estructura, textos y metadatos
+index.html            estructura, textos y metadatos (contenido real)
 assets/styles.css     paletas, tipografía, tarjetas, animaciones
 assets/app.js         temas, terminal que se escribe sola, efectos de ratón
 assets/fonts/         Geist y JetBrains Mono, servidas en local
 assets/og.html        fuente de la imagen para compartir (noindex)
 assets/og-image.png   la imagen ya renderizada (1200x630)
+guia-indexacion.html  guía de indexación con checklist interactiva
+assets/guia.js        checklist que se guarda en localStorage
 robots.txt            permite el rastreo y apunta al sitemap
-sitemap.xml           única URL, con lastmod
+sitemap.xml           dos URLs, con lastmod
 llms.txt              resumen en texto para IAs que lo lean
 404.html              página de error
 scripts/              ping de IndexNow
@@ -36,10 +38,10 @@ scripts/              ping de IndexNow
 ### Lo que ya está puesto
 
 - `robots.txt` abierto y con la línea `Sitemap:`.
-- `sitemap.xml` con URL absoluta y `lastmod`.
+- `sitemap.xml` con URLs absolutas y `lastmod`.
 - `<link rel="canonical">` absoluto y `meta robots: index, follow`.
 - Título y descripción únicos; `og:` y `twitter:` completos, con imagen 1200x630.
-- JSON-LD `WebSite` + `Person` (nombre, alias, GitHub).
+- JSON-LD `WebSite` + `Person` (nombre, alias, GitHub) en la home; `Article` en la guía.
 - `llms.txt` para asistentes que lo consulten.
 - Clave de IndexNow en la raíz (`2366afa0c7ccfc4a2e38eb9c342dd4c4.txt`).
 - HTML semántico, fuentes locales, cero dependencias externas: carga rápida.
@@ -52,8 +54,8 @@ scripts/              ping de IndexNow
 3. **Bing Webmaster Tools**: dar de alta el sitio (importa desde Search Console) y enviar el sitemap.
 4. **IndexNow**: avisar a Bing/Yandex/Naver de cada cambio. Aquí: `scripts/ping-indexnow.sh`.
 5. **Enlaces entrantes**: el factor que más pesa para que te descubran. GitHub, LinkedIn, foros.
-6. **Contenido real**: una página con huecos se rastrea, pero Google suele dejarla en
-   "rastreada, actualmente no indexada". Texto propio y útil es lo que la mete en el índice.
+6. **Contenido real**: una página con huecos se rastrea, pero no se indexa. Texto propio y útil
+   es el requisito que no se puede saltar.
 
 Google **no** usa IndexNow. Su Indexing API solo vale para ofertas de empleo y directos.
 Para Google: sitemap + Search Console.
@@ -89,11 +91,11 @@ apagan con `?motion=off` o si el sistema pide reducir movimiento.
 - **Colores y temas**: arriba de `assets/styles.css`, un bloque por tema
   (`tokyo-night`, `catppuccin`, `gruvbox`, `everforest`, `rose-pine`). El acento es `--brand`.
 - **Tema por defecto**: el atributo `data-theme` del `<html>` en `index.html`.
-- **Textos**: `index.html`, dentro de los bloques `placeholder` y las tarjetas vacías.
+- **Textos**: `index.html`, dentro de las secciones y tarjetas.
 
 ## Pendiente
 
-- [ ] Rellenar los huecos (bio, proyectos, enlaces).
+- [x] Rellenar los huecos (bio, proyectos, enlaces) — contenido real.
 - [ ] Publicar (repo público + GitHub Pages) o dominio propio.
 - [ ] Verificar en Search Console y Bing, enviar el sitemap.
 - [ ] Lanzar `scripts/ping-indexnow.sh` tras publicar.

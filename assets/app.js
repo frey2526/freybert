@@ -62,11 +62,11 @@ if (code) {
   cursor.textContent = "▊";
 
   const lines = [
-    { prompt: true, text: "whoami" },
-    { text: "freybert" },
+    { prompt: true, text: "cat rol.txt" },
+    { text: "ajedrecista · programador · desarrollador de sistemas" },
     { blank: true },
     { prompt: true, text: "ls" },
-    { text: "// nada todavía", comment: true },
+    { text: "sobre  ajedrez  proyectos  como-trabajo  ahora  contacto", comment: true },
     { blank: true },
     { prompt: true, text: "" },
   ];
