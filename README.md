@@ -25,11 +25,17 @@ assets/fonts/         Geist y JetBrains Mono, servidas en local
 
 ## Animaciones
 
+- **Fondo**: tres orbes morados que flotan, rejilla que se desplaza despacio y un grano fino.
+- **Ratón**: un halo persigue al cursor, el fondo hace parallax y la terminal se inclina.
+- **Tarjetas**: foco de luz que sigue al ratón dentro de cada una.
 - **Entrada**: el nombre se escribe de izquierda a derecha y la terminal teclea sola.
 - **Teclado**: pulsa `T` para cambiar de tema (con transición de vista si el navegador la tiene).
 - **Botones**: el primario tiene reflejo al pasar por encima y se hunde al pulsar.
-- **Scroll**: cada sección aparece al entrar en pantalla.
+- **Scroll**: cada sección aparece al entrar en pantalla y una barra fina marca el progreso.
 - **Terminal**: al pasar el ratón, los tres puntos se encienden.
+
+Los efectos de ratón solo se activan con puntero fino (no en pantallas táctiles) y se
+apagan con `?motion=off` o si el sistema pide reducir movimiento.
 
 ## Trucos para probar
 

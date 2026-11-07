@@ -115,6 +115,87 @@ async function writeTerminal() {
 
 writeTerminal();
 
+// ---------- Fondo y luz que siguen al ratón ----------
+
+const finePointer = matchMedia("(pointer: fine)").matches;
+
+if (finePointer && !reduceMotion && !noMotion) {
+  const body = document.body;
+  const terminal = document.querySelector(".terminal");
+  const hero = document.querySelector(".hero");
+
+  let targetX = innerWidth / 2;
+  let targetY = innerHeight * 0.3;
+  let glowX = targetX;
+  let glowY = targetY;
+  let frame = 0;
+
+  // La luz persigue al cursor con un pequeño retraso (suavizado).
+  function followGlow() {
+    glowX += (targetX - glowX) * 0.14;
+    glowY += (targetY - glowY) * 0.14;
+    root.style.setProperty("--mx", `${glowX.toFixed(1)}px`);
+    root.style.setProperty("--my", `${glowY.toFixed(1)}px`);
+
+    if (Math.abs(targetX - glowX) > 0.5 || Math.abs(targetY - glowY) > 0.5) {
+      frame = requestAnimationFrame(followGlow);
+    } else {
+      frame = 0;
+    }
+  }
+
+  addEventListener("pointermove", (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    body.classList.add("has-pointer");
+
+    // Paralaje suave del fondo: -1 a 1 desde el centro.
+    root.style.setProperty("--px", (event.clientX / innerWidth * 2 - 1).toFixed(3));
+    root.style.setProperty("--py", (event.clientY / innerHeight * 2 - 1).toFixed(3));
+
+    if (!frame) frame = requestAnimationFrame(followGlow);
+  }, { passive: true });
+
+  // La terminal se inclina un poco hacia el cursor.
+  if (terminal && hero) {
+    hero.addEventListener("pointermove", (event) => {
+      const rect = terminal.getBoundingClientRect();
+      const clamp = (value) => Math.max(-1, Math.min(1, value));
+      const dx = clamp((event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2));
+      const dy = clamp((event.clientY - (rect.top + rect.height / 2)) / (rect.height / 2));
+
+      terminal.style.setProperty("--ry", `${(dx * 1.5).toFixed(2)}deg`);
+      terminal.style.setProperty("--rx", `${(-dy * 1.5).toFixed(2)}deg`);
+    }, { passive: true });
+
+    hero.addEventListener("pointerleave", () => {
+      terminal.style.setProperty("--rx", "0deg");
+      terminal.style.setProperty("--ry", "0deg");
+    });
+  }
+}
+
+// Foco de luz dentro de cada tarjeta.
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--cx", `${event.clientX - rect.left}px`);
+    card.style.setProperty("--cy", `${event.clientY - rect.top}px`);
+  }, { passive: true });
+});
+
+// ---------- Barra de progreso al bajar ----------
+
+const progress = document.querySelector(".progress");
+
+function updateProgress() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  root.style.setProperty("--scroll", max > 0 ? (scrollY / max).toFixed(4) : "0");
+}
+
+addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
+
 // ---------- Secciones que aparecen al bajar ----------
 
 const reveals = document.querySelectorAll(".reveal");

@@ -19,7 +19,6 @@
   --border: #24283b; --border-strong: #414868;
   --text: #c0caf5; --text-2: #a9b1d6; --muted: #8b93b8;
   --brand: #bb9af7; --brand-soft: #bb9af724; --brand-ink: #0c0e10;
-  --glow: #bb9af71f;
   color-scheme: dark;
 }
 
@@ -28,7 +27,6 @@
   --border: #313244; --border-strong: #585b70;
   --text: #cdd6f4; --text-2: #cdd6f4; --muted: #9399b2;
   --brand: #cba6f7; --brand-soft: #cba6f724; --brand-ink: #0c0e10;
-  --glow: #cba6f71f;
   color-scheme: dark;
 }
 
@@ -37,7 +35,6 @@
   --border: #3c3836; --border-strong: #665c54;
   --text: #d4be98; --text-2: #d4be98; --muted: #a89984;
   --brand: #d3869b; --brand-soft: #d3869b24; --brand-ink: #0c0e10;
-  --glow: #d3869b1f;
   color-scheme: dark;
 }
 
@@ -46,7 +43,6 @@
   --border: #343f44; --border-strong: #475258;
   --text: #d3c6aa; --text-2: #d3c6aa; --muted: #918f84;
   --brand: #d699b6; --brand-soft: #d699b624; --brand-ink: #0c0e10;
-  --glow: #d699b61f;
   color-scheme: dark;
 }
 
@@ -55,7 +51,7 @@
   --border: #e1dbd5; --border-strong: #cecacd;
   --text: #575279; --text-2: #5e587d; --muted: #676284;
   --brand: #907aa9; --brand-soft: #907aa924; --brand-ink: #0c0e10;
-  --glow: #907aa914;
+  --orb-strength: .45;
   color-scheme: light;
 }
 
@@ -86,11 +82,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Rejilla tenue + halo del color de marca. */
+/* Rejilla tenue, en movimiento lento. */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -64px;
   z-index: -2;
   background-image:
     linear-gradient(to right, var(--border) 1px, transparent 1px),
@@ -98,18 +94,108 @@ body::before {
   background-size: 64px 64px;
   opacity: .35;
   mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 75%);
+  animation: grid-drift 48s linear infinite;
 }
 
-.glow {
+@keyframes grid-drift {
+  to { background-position: 64px 64px; }
+}
+
+/* Fondo vivo: orbes que flotan, luz que sigue al ratón y grano. */
+.scene {
   position: fixed;
-  top: -30vh;
-  left: 50%;
+  inset: 0;
   z-index: -1;
-  width: 120vw;
-  max-width: 1400px;
-  height: 80vh;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, var(--glow), transparent 65%);
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(calc(var(--px, 0) * 14px), calc(var(--py, 0) * 14px), 0);
+  transition: transform .6s var(--ease);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  background: radial-gradient(circle at 50% 50%, var(--brand), transparent 65%);
+  will-change: transform;
+}
+
+.orb-a {
+  width: 46vw;
+  height: 46vw;
+  left: -10vw;
+  top: -14vw;
+  opacity: calc(.30 * var(--orb-strength, 1));
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+
+.orb-b {
+  width: 34vw;
+  height: 34vw;
+  right: -8vw;
+  top: 12vh;
+  opacity: calc(.18 * var(--orb-strength, 1));
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+
+.orb-c {
+  width: 30vw;
+  height: 30vw;
+  left: 32vw;
+  bottom: -18vw;
+  opacity: calc(.14 * var(--orb-strength, 1));
+  animation: drift-c 30s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a {
+  to { transform: translate3d(8vw, 6vh, 0) scale(1.12); }
+}
+
+@keyframes drift-b {
+  to { transform: translate3d(-10vw, 10vh, 0) scale(1.18); }
+}
+
+@keyframes drift-c {
+  to { transform: translate3d(6vw, -8vh, 0) scale(1.1); }
+}
+
+/* Halo que persigue el cursor. */
+.aura {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 46rem;
+  height: 46rem;
+  margin: -23rem 0 0 -23rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--brand-soft) 0%, transparent 62%);
+  filter: blur(24px);
+  opacity: 0;
+  transform: translate3d(var(--mx, 50vw), var(--my, 30vh), 0);
+  transition: opacity .5s ease;
+}
+
+body.has-pointer .aura { opacity: .85; }
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: .05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* Barra fina de progreso al bajar. */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 2px;
+  background: var(--brand);
+  transform: scaleX(var(--scroll, 0));
+  transform-origin: left;
   pointer-events: none;
 }
 
@@ -324,6 +410,9 @@ h1 .accent { color: var(--brand); }
   background: var(--bg-deep);
   box-shadow: 0 24px 60px -30px #000a;
   overflow: hidden;
+  /* Se inclina un poco siguiendo el ratón. */
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .25s ease-out, border-color .3s ease, background-color .3s ease;
 }
 
 .terminal-bar {
@@ -449,6 +538,8 @@ html.js .reveal.is-visible {
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: .6rem;
@@ -458,6 +549,20 @@ html.js .reveal.is-visible {
   background: var(--surface);
   transition: transform .18s ease, border-color .18s ease, background .18s ease;
 }
+
+/* Foco de luz que sigue al ratón dentro de la tarjeta. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(220px circle at var(--cx, 50%) var(--cy, 50%), var(--brand-soft), transparent 70%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before { opacity: 1; }
 
 .card:hover {
   transform: translateY(-3px);
