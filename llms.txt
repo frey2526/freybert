@@ -1,19 +1,17 @@
 # Freybert
 
-Página personal de Freybert: ajedrecista, programador y desarrollador de sistemas.
-Automatizaciones con IA, paneles y herramientas que se ven y se usan.
+Página personal de Freybert: desarrollador de software y programador.
+Construyo sistemas, automatizaciones y páginas que se ven y se usan.
 
 Sitio estático (HTML, CSS y JS sin dependencias), autohospedado con las fuentes
 Geist y JetBrains Mono.
 
 ## Qué hace
 
-- Automatizaciones con IA: tareas repetitivas conectadas y ejecutadas solas,
-  con un panel para lanzarlas y ver si salieron bien.
-- Paneles y páginas: interfaces que muestran datos reales.
-- Sistemas y herramientas: Linux, scripts y servicios para que lo anterior no se caiga.
-- Ajedrez: táctica, partidas y análisis; la misma lógica de posición, variantes
-  y reloj que un sistema.
+- Desarrollo de software: sistemas, automatizaciones y páginas que se ven y se usan.
+- Paneles e interfaces: formularios, tablas, estados con datos reales.
+- Sistemas: Linux, scripts y servicios para que lo anterior no se caiga.
+- Ajedrez y matemáticas: lógica, posición y patrones que aplico al código.
 
 ## Enlaces
 
@@ -26,6 +24,6 @@ Python, FastAPI, SQL, PostgreSQL, HTML, CSS, JavaScript, Git, Linux, IA.
 
 ## Índice
 
-- `/` — inicio con Sobre mí, Qué hago, Ajedrez, Proyectos, Cómo trabajo, Ahora y Contacto.
+- `/` — inicio con Sobre mí, Matemáticas, Ajedrez, Proyectos, Cómo trabajo y Ahora.
 - `/guia-indexacion.html` — guía de lo que acelera la indexación (sitemap, Search Console, IndexNow, enlaces, contenido).
 - `/404.html` — página de error con la misma estética.

@@ -3,8 +3,8 @@
 Página personal de Freybert. Estática y sin dependencias: HTML, CSS y un poco de JS.
 Estética de Omarchy: oscuro, monoespaciada, acento morado y temas intercambiables.
 
-Contenido real: **ajedrecista, programador y desarrollador de sistemas** — automatizaciones con IA,
-paneles y herramientas que se ven y se usan, más una guía de indexación.
+Contenido real: **desarrollador de software y programador** — construyo sistemas,
+automatizaciones y páginas que se ven y se usan, más una guía de indexación.
 
 ## Verla
 
