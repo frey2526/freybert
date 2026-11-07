@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es" data-theme="tokyo-night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lo que acelera la indexación — Freybert</title>
+  <meta name="description" content="Lista práctica de lo que hace que Google, Bing y Yandex indexen una página antes: sitemap, Search Console, IndexNow, enlaces y contenido.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://frey2526.github.io/freybert/guia-indexacion.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Freybert">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Lo que acelera la indexación">
+  <meta property="og:description" content="Sitemap, Search Console, IndexNow, enlaces y contenido: lo que hace que una página se indexe antes.">
+  <meta property="og:url" content="https://frey2526.github.io/freybert/guia-indexacion.html">
+  <meta property="og:image" content="https://frey2526.github.io/freybert/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lo que acelera la indexación">
+  <meta name="twitter:description" content="Sitemap, Search Console, IndexNow, enlaces y contenido.">
+  <meta name="twitter:image" content="https://frey2526.github.io/freybert/assets/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Lo que acelera la indexación",
+    "description": "Sitemap, Search Console, IndexNow, enlaces y contenido: lo que hace que una página se indexe antes.",
+    "inLanguage": "es",
+    "datePublished": "2026-11-07",
+    "dateModified": "2026-11-07",
+    "mainEntityOfPage": "https://frey2526.github.io/freybert/guia-indexacion.html",
+    "author": { "@type": "Person", "name": "Freybert", "url": "https://frey2526.github.io/freybert/" },
+    "publisher": { "@type": "Person", "name": "Freybert", "url": "https://frey2526.github.io/freybert/" }
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1b26'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='700' fill='%23bb9af7' text-anchor='middle'%3Ef%3C/text%3E%3C/svg%3E">
+
+  <link rel="preload" href="assets/fonts/geist-latin-wght-normal.BgDaEnEv.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jetbrains-mono-latin-wght-normal.B9CIFXIH.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <script>
+    (function () {
+      var themes = ["tokyo-night", "catppuccin", "gruvbox", "everforest", "rose-pine"];
+      var params = new URLSearchParams(location.search);
+      var saved = localStorage.getItem("freybert-theme");
+      var theme = [params.get("theme"), saved].filter(function (id) {
+        return themes.indexOf(id) > -1;
+      })[0];
+      if (theme) document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.add("js");
+      if (params.get("motion") === "off") document.documentElement.classList.add("no-motion");
+    })();
+  </script>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="aura"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>freybert</a>
+    <nav aria-label="Principal">
+      <a href="index.html#sobre">Sobre mí</a>
+      <a href="index.html#proyectos">Proyectos</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="guide">
+    <section class="guide-hero">
+      <p class="kicker">// guía</p>
+      <h1 class="guide-title">Lo que acelera<br>la indexación<span class="accent">.</span></h1>
+      <p class="lead">
+        Una página no aparece en Google porque exista. Aparece porque alguien la descubre,
+        la rastrea, la entiende y decide que merece estar. Esto es lo que acelera cada paso,
+        en orden de impacto.
+      </p>
+    </section>
+
+    <section class="guide-section reveal">
+      <h2><span class="num">01</span> Que te encuentren</h2>
+      <ul class="guide-list">
+        <li><strong>Una URL pública.</strong> HTTPS, sin login, sin contraseña. Si un robot no puede abrirla, no existe.</li>
+        <li><strong>robots.txt abierto</strong> y con la línea <code>Sitemap:</code> apuntando al mapa. Un <code>Disallow: /</code> por error es la causa número uno de "no indexada".</li>
+        <li><strong>sitemap.xml</strong> con URLs absolutas y <code>lastmod</code> real. Es la lista que le dices a Google de qué páginas tienes.</li>
+        <li><strong>Enlaces internos.</strong> Cada página debe estar enlazada desde otra. Una página huérfana solo la encuentra el sitemap.</li>
+        <li><strong>Enlaces externos.</strong> GitHub, LinkedIn, un foro, un comentario. Es lo que más pesa para que te descubran sin esperar al sitemap.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section reveal">
+      <h2><span class="num">02</span> Para Google</h2>
+      <ul class="guide-list">
+        <li><strong>Search Console</strong>, propiedad de dominio (por DNS) o de URL. Sin verificar no puedes pedir nada.</li>
+        <li><strong>Enviar el sitemap</strong> en <em>Indexación → Sitemaps</em>. Tarda un día en procesarse.</li>
+        <li><strong>Inspección de URL → Solicitar indexación</strong> para la página concreta. Hay cuota y repetirlo no acelera nada: se pide una vez.</li>
+        <li><strong>Leer el motivo</strong> en <em>Páginas</em>. "Rastreada, actualmente no indexada" casi siempre significa contenido flojo, no un fallo técnico.</li>
+        <li><strong>La Indexing API no vale</strong> para webs normales: solo para ofertas de empleo y directos.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section reveal">
+      <h2><span class="num">03</span> Para Bing, Yandex y Naver</h2>
+      <ul class="guide-list">
+        <li><strong>Bing Webmaster Tools</strong>: dar de alta el sitio, importando desde Search Console si quieres.</li>
+        <li><strong>IndexNow</strong>: una clave en la raíz del sitio y un aviso por API cada vez que cambias algo. Rastrean en horas, no en días.</li>
+        <li><strong>Google no usa IndexNow.</strong> Para Google sigue siendo sitemap y Search Console.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section reveal">
+      <h2><span class="num">04</span> Que decidan indexarla</h2>
+      <ul class="guide-list">
+        <li><strong>Contenido real.</strong> Una página con huecos se rastrea, pero no se indexa. Texto propio y útil es el requisito que no se puede saltar.</li>
+        <li><strong>Título y descripción únicos</strong>, que digan de qué va la página y no una frase genérica.</li>
+        <li><strong>HTML semántico</strong>: un solo <code>h1</code>, secciones con <code>h2</code>, enlaces con texto que se entienda.</li>
+        <li><strong>Datos estructurados</strong> (JSON-LD): <code>Person</code>, <code>WebSite</code>, <code>Article</code>… Le dicen a la máquina qué es cada cosa.</li>
+        <li><strong>Velocidad</strong>: estático, fuentes locales, sin scripts de terceros. Es gratis y se nota.</li>
+        <li><strong>Móvil y HTTPS.</strong> Sin esto, el resto da igual.</li>
+        <li><strong>Actualizar <code>lastmod</code></strong> cuando cambias el contenido. Es la señal de "esto está vivo".</li>
+      </ul>
+    </section>
+
+    <section class="guide-section reveal">
+      <h2><span class="num">05</span> Lo que no acelera</h2>
+      <ul class="guide-list is-muted">
+        <li>Enviar la misma URL diez veces a Search Console. Hay cuota y no corre más.</li>
+        <li>Comprar enlaces o meterte en directorios basura. Puede penalizar.</li>
+        <li>Repetir la palabra clave hasta que el texto no se lea.</li>
+        <li>Texto oculto, redirecciones raras o contenido distinto para el robot.</li>
+        <li>Esperar que la Indexing API de Google haga algo. No aplica.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section reveal">
+      <h2><span class="num">06</span> Tiempos realistas</h2>
+      <table class="timeline">
+        <thead>
+          <tr><th>Qué</th><th>Cuánto tarda</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>IndexNow (Bing/Yandex)</td><td>Horas</td></tr>
+          <tr><td>Sitemap + Search Console</td><td>Días a semanas</td></tr>
+          <tr><td>Enlaces entrantes</td><td>Semanas</td></tr>
+          <tr><td>Entrar en el entrenamiento de una IA</td><td>Meses o años</td></tr>
+          <tr><td>Ranking por una búsqueda</td><td>Meses</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="guide-section reveal">
+      <div class="check-head">
+        <h2><span class="num">07</span> Checklist</h2>
+        <p class="check-count" id="check-count">0 / 16</p>
+      </div>
+      <p class="check-help">Se guarda en este navegador. Marca lo que ya esté hecho.</p>
+
+      <div class="checklist" id="checklist">
+        <label class="check-item"><input type="checkbox"><span>La web está publicada en HTTPS, sin login.</span></label>
+        <label class="check-item"><input type="checkbox"><span><code>robots.txt</code> permite el rastreo y apunta al sitemap.</span></label>
+        <label class="check-item"><input type="checkbox"><span><code>sitemap.xml</code> con URLs absolutas y <code>lastmod</code>.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Canonical absoluto en cada página.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Título y descripción únicos por página.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Hay contenido real, no huecos.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Cada página está enlazada desde otra.</span></label>
+        <label class="check-item"><input type="checkbox"><span>JSON-LD válido (<code>Person</code>, <code>WebSite</code>…).</span></label>
+        <label class="check-item"><input type="checkbox"><span>Search Console verificada.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Sitemap enviado en Search Console.</span></label>
+        <label class="check-item"><input type="checkbox"><span>URL inspeccionada y solicitud de indexación enviada.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Bing Webmaster Tools dado de alta.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Clave de IndexNow accesible en la raíz.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Ping de IndexNow tras publicar.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Enlaces desde GitHub, LinkedIn o un foro.</span></label>
+        <label class="check-item"><input type="checkbox"><span><code>lastmod</code> actualizado al cambiar el contenido.</span></label>
+      </div>
+
+      <button class="theme-btn reset-btn" id="reset-checks" type="button">Borrar marcas</button>
+    </section>
+
+    <p class="guide-back"><a href="index.html">← Volver al inicio</a></p>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> Freybert</p>
+    <p class="hint">pulsa <kbd>T</kbd> o el botón para cambiar de tema</p>
+    <button class="theme-btn" id="theme-btn" type="button" aria-live="polite">
+      Tema: <span id="theme-name">Tokyo Night</span>
+    </button>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script src="assets/guia.js"></script>
+</body>
+</html>

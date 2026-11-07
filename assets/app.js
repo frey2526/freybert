@@ -55,65 +55,68 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // ---------- Terminal que se escribe sola ----------
 
 const code = document.getElementById("terminal-code");
-const cursor = document.createElement("span");
-cursor.className = "cursor";
-cursor.textContent = "▊";
 
-const lines = [
-  { prompt: true, text: "whoami" },
-  { text: "freybert" },
-  { blank: true },
-  { prompt: true, text: "ls" },
-  { text: "// nada todavía", comment: true },
-  { blank: true },
-  { prompt: true, text: "" },
-];
+if (code) {
+  const cursor = document.createElement("span");
+  cursor.className = "cursor";
+  cursor.textContent = "▊";
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const lines = [
+    { prompt: true, text: "whoami" },
+    { text: "freybert" },
+    { blank: true },
+    { prompt: true, text: "ls" },
+    { text: "// nada todavía", comment: true },
+    { blank: true },
+    { prompt: true, text: "" },
+  ];
 
-function newline() {
-  code.insertBefore(document.createTextNode("\n"), cursor);
-}
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function typeInto(node, text) {
-  for (const char of text) {
-    node.textContent += char;
-    await sleep(48);
+  function newline() {
+    code.insertBefore(document.createTextNode("\n"), cursor);
   }
-}
 
-async function writeTerminal() {
-  code.appendChild(cursor);
-  // Deja que el nombre termine de "escribirse" antes de empezar.
-  if (!noMotion && !reduceMotion) await sleep(900);
-  let first = true;
-
-  for (const line of lines) {
-    if (!first) newline();
-    first = false;
-    if (line.blank) continue;
-
-    if (line.prompt) {
-      const prompt = document.createElement("span");
-      prompt.className = "prompt";
-      prompt.textContent = "$ ";
-      code.insertBefore(prompt, cursor);
-    }
-
-    const text = document.createElement("span");
-    if (line.comment) text.className = "comment";
-    code.insertBefore(text, cursor);
-
-    if (noMotion || reduceMotion) {
-      text.textContent = line.text;
-    } else {
-      await typeInto(text, line.text);
-      await sleep(140);
+  async function typeInto(node, text) {
+    for (const char of text) {
+      node.textContent += char;
+      await sleep(48);
     }
   }
-}
 
-writeTerminal();
+  async function writeTerminal() {
+    code.appendChild(cursor);
+    // Deja que el nombre termine de "escribirse" antes de empezar.
+    if (!noMotion && !reduceMotion) await sleep(900);
+    let first = true;
+
+    for (const line of lines) {
+      if (!first) newline();
+      first = false;
+      if (line.blank) continue;
+
+      if (line.prompt) {
+        const prompt = document.createElement("span");
+        prompt.className = "prompt";
+        prompt.textContent = "$ ";
+        code.insertBefore(prompt, cursor);
+      }
+
+      const text = document.createElement("span");
+      if (line.comment) text.className = "comment";
+      code.insertBefore(text, cursor);
+
+      if (noMotion || reduceMotion) {
+        text.textContent = line.text;
+      } else {
+        await typeInto(text, line.text);
+        await sleep(140);
+      }
+    }
+  }
+
+  writeTerminal();
+}
 
 // ---------- Fondo y luz que siguen al ratón ----------
 
