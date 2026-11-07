@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>og</title>
+  <style>
+    @font-face {
+      font-family: "Geist";
+      src: url("fonts/geist-latin-wght-normal.BgDaEnEv.woff2") format("woff2");
+      font-weight: 100 900;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/jetbrains-mono-latin-wght-normal.B9CIFXIH.woff2") format("woff2");
+      font-weight: 100 800;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+    }
+
+    body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 90px;
+      background: #13141c;
+      color: #c0caf5;
+      font-family: "Geist", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, #24283b 1px, transparent 1px),
+        linear-gradient(to bottom, #24283b 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: .5;
+      mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 80%);
+    }
+
+    .glow {
+      position: absolute;
+      left: -15%;
+      top: -40%;
+      width: 70%;
+      height: 120%;
+      background: radial-gradient(circle, #bb9af755, transparent 65%);
+      filter: blur(60px);
+    }
+
+    .content { position: relative; }
+
+    .kicker {
+      margin: 0 0 18px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #bb9af7;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 158px;
+      font-weight: 600;
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+
+    h1 .dot { color: #bb9af7; }
+
+    p {
+      margin: 26px 0 0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px;
+      color: #8b93b8;
+    }
+
+    .url {
+      position: absolute;
+      right: 90px;
+      bottom: 64px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      color: #8b93b8;
+    }
+
+    .bar {
+      position: absolute;
+      left: 90px;
+      bottom: 64px;
+      width: 64px;
+      height: 3px;
+      background: #bb9af7;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="content">
+    <p class="kicker">// perfil</p>
+    <h1>freybert<span class="dot">.</span></h1>
+    <p>automatizaciones con IA</p>
+  </div>
+  <div class="bar"></div>
+  <p class="url">frey2526.github.io/freybert</p>
+</body>
+</html>

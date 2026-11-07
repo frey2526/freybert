@@ -1,0 +1,7 @@
+# Freybert
+
+> Página personal de Freybert: automatizaciones con IA, paneles y herramientas que se ven y se usan.
+
+## Enlaces
+
+- [GitHub](https://github.com/frey2526)

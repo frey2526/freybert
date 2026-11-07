@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Mapa del sitio
+Sitemap: https://frey2526.github.io/freybert/sitemap.xml
