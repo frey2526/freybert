@@ -1,0 +1,88 @@
+# Freybert Gonzalez — texto completo del sitio
+
+URL: https://frey2526.github.io/freybert/
+Idioma: español
+También escrito: Freybert Gonzales
+
+## Perfil
+
+Desarrollador de software · Programador · Ajedrecista · Estudiante.
+
+## Sobre mí
+
+Desarrollo software.
+
+Llevo ya un buen tiempo programando: empecé con Python y Git, y desde entonces no he
+parado. HTML y CSS para que las cosas se vean, JavaScript para que respondan, FastAPI
+y SQL para que tengan memoria. Sé lo suficiente como para llevar la pieza entera, no
+solo la capa de arriba.
+
+Fuera del código juego al ajedrez y me gustan las matemáticas. Verlas desde Chile,
+lejos del ruido, me ayuda a concentrarme en la lógica y en cómo se traduce en software.
+
+Me gusta entender cómo funcionan las cosas por dentro: desde una consulta SQL
+hasta un servicio que se levanta solo. Por eso construyo, lo pruebo y lo rompo
+hasta que queda claro.
+
+Herramientas: Estudiante, Python, FastAPI, SQL, PostgreSQL, HTML/CSS, JavaScript,
+Git, Linux, IA.
+
+## Matemáticas
+
+Las matemáticas me gustan más que casi todo. Verlas desde Chile, lejos del
+ruido, me ayuda a concentrarme en lo que importa: la lógica detrás de los
+números y cómo se traduce en código.
+
+No soy matemático, pero pienso como uno: descomponer el problema, buscar el
+patrón y comprobar que el resultado tenga sentido. Eso es lo que aplico a la
+programación y a los sistemas que construyo.
+
+Me interesan sobre todo la lógica, el álgebra y la teoría de números: las partes
+que se pueden razonar paso a paso y comprobar. Es lo mismo que hago cuando depuro
+un programa: seguir el hilo hasta que el resultado cuadra.
+
+## Ajedrez
+
+El ajedrez me enseñó a pensar antes de mover y a revisar la jugada después.
+
+Entreno táctica, juego partidas y de vez en cuando analizo con la máquina
+para ver lo que no vi. No hay atajos: se mejora leyendo posiciones, perdiendo
+y volviendo al tablero.
+
+Es también donde mejor se entiende el resto: cada partida es un problema con
+reglas claras, información incompleta y un reloj corriendo. Como un sistema.
+
+Estudio aperturas para no salir perdido, táctica para no regalar piezas y
+finales para no estropear una partida ganada. Lo que más me gusta es el
+cálculo: ver la jugada que el rival no vio.
+
+## Estudios
+
+Estudio y aprendo todo lo que puedo: programación, matemáticas y sistemas.
+
+No me quedo con lo que ya sé. Cada proyecto es una excusa para aprender algo
+nuevo: una librería, un patrón, una forma mejor de organizar el código. Lo que
+aprendo lo aplico en la siguiente cosa que construyo.
+
+Estudio desde Chile, con la idea de que la base técnica —matemáticas, lógica y
+software— sirve para cualquier cosa que quiera hacer después.
+
+## Cómo trabajo
+
+1. Primero que funcione. Un sistema que corre y se puede probar vale más que uno
+   perfecto en la cabeza.
+2. Que se vea. Si el resultado no se puede mirar, medir o enseñar, es difícil saber
+   si sirve.
+3. Que se entienda. Código corto, nombres claros y un LEEME que explique el porqué,
+   no solo el qué.
+
+## Ahora
+
+- Aprendiendo: FastAPI y SQL en serio.
+- Construyendo: cosas con IA, propias y para clientes.
+- Escribiendo: lo que aprendo, para que quede y para que se entienda.
+
+## Enlaces
+
+- Sitio: https://frey2526.github.io/freybert/
+- GitHub: https://github.com/frey2526

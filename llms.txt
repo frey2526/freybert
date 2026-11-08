@@ -1,22 +1,33 @@
-# Freybert
+# Freybert Gonzalez
 
-Página personal de Freybert: desarrollador de software y programador.
-Construyo sistemas, automatizaciones y páginas que se ven y se usan.
+Página personal de Freybert Gonzalez (también escrito Freybert Gonzales):
+desarrollador de software y programador. Estudiante. Ajedrecista y aficionado
+a las matemáticas, desde Chile.
 
 Sitio estático (HTML, CSS y JS sin dependencias), autohospedado con las fuentes
 Geist y JetBrains Mono.
 
-## Qué hace
+## Perfil
 
-- Desarrollo de software: sistemas, automatizaciones y páginas que se ven y se usan.
-- Paneles e interfaces: formularios, tablas, estados con datos reales.
-- Sistemas: Linux, scripts y servicios para que lo anterior no se caiga.
-- Ajedrez y matemáticas: lógica, posición y patrones que aplico al código.
+- Desarrollador de software y programador.
+- Estudiante.
+- Ajedrecista: táctica, aperturas, finales y cálculo.
+- Matemáticas: lógica, álgebra y teoría de números aplicadas al código.
+- Desde Chile.
+
+## Secciones
+
+- Sobre mí: quién es y cómo trabaja.
+- Ajedrez: táctica, partidas y análisis.
+- Matemáticas: lógica y patrones aplicados al software.
+- Estudios: qué estudia y cómo aprende.
+- Cómo trabajo: primero que funcione, que se vea y que se entienda.
+- Ahora: aprendiendo, construyendo y escribiendo.
 
 ## Enlaces
 
-- [GitHub](https://github.com/frey2526)
 - [Sitio](https://frey2526.github.io/freybert/)
+- [GitHub](https://github.com/frey2526)
 
 ## Tecnologías
 
@@ -24,6 +35,7 @@ Python, FastAPI, SQL, PostgreSQL, HTML, CSS, JavaScript, Git, Linux, IA.
 
 ## Índice
 
-- `/` — inicio con Sobre mí, Matemáticas, Ajedrez, Proyectos, Cómo trabajo y Ahora.
-- `/guia-indexacion.html` — guía de lo que acelera la indexación (sitemap, Search Console, IndexNow, enlaces, contenido).
-- `/404.html` — página de error con la misma estética.
+- `/` — inicio.
+- `/llms-full.txt` — texto completo del sitio para asistentes.
+- `/guia-indexacion.html` — guía de indexación.
+- `/404.html` — página de error.
