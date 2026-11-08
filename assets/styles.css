@@ -347,6 +347,13 @@ h1 .accent { color: var(--brand); }
   font-weight: 600;
 }
 
+.alias {
+  margin: .35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  color: var(--muted);
+}
+
 /* --- Sección Ajedrez: texto + tablero lado a lado --- */
 
 .split {
