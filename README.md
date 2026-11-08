@@ -1,10 +1,13 @@
-# freybert
+# Freybert Gonzalez
 
-Página personal de Freybert. Estática y sin dependencias: HTML, CSS y un poco de JS.
-Estética de Omarchy: oscuro, monoespaciada, acento morado y temas intercambiables.
+Página personal de **Freybert Gonzalez** (también escrito Freybert Gonzales):
+desarrollador de software y programador. Estudiante, ajedrecista y aficionado
+a las matemáticas, desde Chile.
 
-Contenido real: **desarrollador de software y programador** — construyo sistemas,
-automatizaciones y páginas que se ven y se usan, más una guía de indexación.
+**Sitio publicado:** https://frey2526.github.io/freybert/
+
+Estática y sin dependencias: HTML, CSS y un poco de JS. Estética de Omarchy:
+oscuro, monoespaciada, acento morado y temas intercambiables.
 
 ## Verla
 
